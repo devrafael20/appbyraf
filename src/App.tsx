@@ -1,12 +1,13 @@
 import { About } from './components/About'
-import { Approach } from './components/Approach'
-import { CommonThread } from './components/CommonThread'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 import { Hero } from './components/Hero'
 import { Nav } from './components/Nav'
-import { SelectedWork } from './components/SelectedWork'
-import { WhatsNext } from './components/WhatsNext'
+import { ProcessTimeline } from './components/ProcessTimeline'
+import { ProjectGallery } from './components/ProjectGallery'
+import { ServicesSection } from './components/ServicesSection'
+import { SkillsExplorer } from './components/SkillsExplorer'
+import { WorkbenchSection } from './components/WorkbenchSection'
 
 export default function App() {
   return (
@@ -17,11 +18,12 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <SelectedWork />
-        <CommonThread />
-        <Approach />
         <About />
-        <WhatsNext />
+        <ProjectGallery />
+        <SkillsExplorer />
+        <ServicesSection />
+        <ProcessTimeline />
+        <WorkbenchSection />
         <Contact />
       </main>
       <Footer />

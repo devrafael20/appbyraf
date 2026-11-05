@@ -1,20 +1,14 @@
-# Rafael — Digital Products
+# DEVRAF
 
-Portfolio site for Rafael.
+Personal portfolio for Rafael — developer and product builder.
 
 ## Product URLs
 
-Set live product links in `src/content/site.ts`:
+Live product links live in `src/content/site.ts`.
 
-```ts
-export const productUrls = {
-  calendario: 'https://example.com',
-  balancero: 'https://example.com',
-  komersyo: 'https://example.com',
-}
-```
-
-Until a URL is set, that product’s Explore control stays on the page and does not navigate.
+- Calendario: `https://calendario.appbyraf.com`
+- Balancero: `https://balancero.appbyraf.com`
+- Komersyo: no public URL yet
 
 ## Develop
 

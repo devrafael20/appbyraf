@@ -1,28 +1,26 @@
 import type { ReactNode } from 'react'
-
-type Arrow = 'ne' | 'se'
+import { IconArrow } from './Icons'
 
 type CtaProps = {
   children: ReactNode
   href?: string
-  arrow?: Arrow
-  disabled?: boolean
+  onClick?: () => void
+  type?: 'button' | 'submit'
+  variant?: 'primary' | 'ghost' | 'accent'
   className?: string
-}
-
-const arrows: Record<Arrow, string> = {
-  ne: '↗',
-  se: '↘',
+  arrow?: boolean
 }
 
 export function Cta({
   children,
   href,
-  arrow,
-  disabled = false,
+  onClick,
+  type = 'button',
+  variant = 'ghost',
   className = '',
+  arrow = false,
 }: CtaProps) {
-  const classes = ['cta', className, disabled ? 'is-disabled' : '']
+  const classes = ['cta', variant === 'primary' ? 'cta-primary' : '', variant === 'accent' ? 'cta-accent' : '', className]
     .filter(Boolean)
     .join(' ')
 
@@ -30,30 +28,30 @@ export function Cta({
     <>
       <span>{children}</span>
       {arrow ? (
-        <span className={`cta-arrow cta-arrow--${arrow}`} aria-hidden="true">
-          {arrows[arrow]}
+        <span className="cta-arrow">
+          <IconArrow />
         </span>
       ) : null}
     </>
   )
 
-  if (disabled || !href) {
+  if (href) {
+    const external = href.startsWith('http')
     return (
-      <span className={classes} role={disabled ? 'link' : undefined} aria-disabled={disabled || undefined}>
+      <a
+        className={classes}
+        href={href}
+        onClick={onClick}
+        {...(external ? { target: '_blank', rel: 'noreferrer' } : undefined)}
+      >
         {inner}
-      </span>
+      </a>
     )
   }
 
-  const external = href.startsWith('http')
-
   return (
-    <a
-      className={classes}
-      href={href}
-      {...(external ? { target: '_blank', rel: 'noreferrer' } : undefined)}
-    >
+    <button className={classes} type={type} onClick={onClick}>
       {inner}
-    </a>
+    </button>
   )
 }

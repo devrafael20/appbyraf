@@ -4,26 +4,20 @@ export function Footer() {
   return (
     <footer className="footer">
       <div className="wrap footer-inner">
-        <div className="footer-brand">
-          <p className="wordmark">
-            <span>{site.logo.name}</span>
-            <span className="wordmark-slash" aria-hidden="true">
-              /
-            </span>
-            <span>{site.logo.mark}</span>
+        <div>
+          <p>{footer.note}</p>
+          <p className="footer-meta" style={{ marginTop: '0.45rem' }}>
+            {footer.legal}
           </p>
-          <p>{footer.tagline}</p>
         </div>
-        <nav aria-label="Footer">
-          <ul className="footer-links">
-            {site.footerNav.map((item) => (
-              <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <p className="footer-legal">{footer.legal}</p>
+        <div>
+          <p className="footer-meta">{footer.stack}</p>
+          <p style={{ marginTop: '0.45rem' }}>
+            <a href={site.github} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   )
